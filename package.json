@@ -2,9 +2,9 @@
   "name": "powerm",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "star": "node app.js"
+    "star": "node index.js"
   },
   "keywords": [],
   "author": "",
