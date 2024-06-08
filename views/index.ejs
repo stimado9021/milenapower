@@ -1,8 +1,44 @@
 <%- include('template/cabecera.ejs') %>
-<%- include('template/mainmenu.ejs') %>
-   <div class="container p-5">
+<%- include('template/menuSimple.ejs') %>
+   <div class="container p-5" style="height: 500px;">
  
-            <h1 class="p-5 text-uppercase text-warning">panel Principal</h1>
+            <div class="col-md-4 col-sm-8 col-xm-12 m-auto">
+               <div class="card" style="box-shadow: 23px 23px 12px -9px rgba(0,0,0,0.52);">
+                  <div class="card-header bg-warning">
+                     <h4 class="p-1 text-uppercase text-dark text-center">
+                        <strong class="text-danger">Milena</strong> 
+                        <strong class="text-primary">Power</strong></h4>
+                     <strong class="text-uppercase text-dark text-center">tienda de viveres</strong>
+                  </div>
+                  <div class="card-body bg-dark">
+                     <form action="/usuario" method="post">
+                        <div class="form-group mt-1">
+                           <input 
+                               type="text"
+                               id="usuario"
+                               name="usuario"
+                               placeholder="Ingrese Usuario"
+                               class="form-control m-2"
+                               required
+                           >
+                           <br>
+                           <div class="form-group mt-1">
+                              <input 
+                                  type="password"
+                                  id="password"
+                                  name="password"
+                                  placeholder="Ingrese Password"
+                                  class="form-control m-2"
+                                  required
+                              >
+                              <br>
+                              <button type="submit" class="btn btn-warning btn-block">Login</button>
+                          </div>
+                       </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
    </div>
 
 <%- include('template/footer.ejs') %>

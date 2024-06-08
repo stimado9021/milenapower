@@ -1,8 +1,48 @@
 <%- include('template/cabecera.ejs') %>
 <%- include('template/mainmenu.ejs') %>
+<% if(message && message!=undefined) {%>
+   <div id="mensaje" class="alert alert-dark"><h2 class="text-primary"><%= message %></h2></div>
+<%} %>
    <div class="container p-5">
- 
-            <h1 class="p-5 text-uppercase text-warning">panel Products</h1>
+     
+
+            <h1 class="text-uppercase text-warning bg-dark p-2">panel Products</h1>
+            <div class="m-3">
+               <a class="btn-success mb-4 p-2" href="/product/create">Crear Producto</a>
+            </div>
+            <div class="table table-default" style="box-shadow: 43px 36px 5px 0px rgba(0,0,0,0.75);">        
+            <table class="table table-bordered table-striped">
+               <thead class=" bg-warning text-danger text-uppercase">
+                 <tr class="text-center">                   
+                   <th>producto</th>
+                   <th>description</th>
+                   <th>stock</th>
+                   <th>precio/Compra</th>
+                   <th>precio/Venta</th>
+                   <th>fecha/Creacion</th>
+                   <th>Accion</th>
+                 </tr>
+               </thead>
+               <tbody>
+              
+         <% if(prod.length>0) { %>
+            <% prod.forEach(el => { %>
+               
+               <tr class="text-white bg-dark text-uppercase text-center " style="font-size: 12px;" >                 
+                  <td><%= el.producto %></td>
+                  <td><%= el.descripcion %></td>
+                  <td><%= el.stock %></td>
+                  <td><%= el.costo %></td>
+                  <td><%= el.precio %></td>
+                  <td><%= el.createdAt.toLocaleString()  %></td>
+                  <td><a class="btn btn-warning text-danger" href="/product/<%= el.id %>">Editar Product</a></td>
+                </tr>
+               <%  }); %>
+           <% } %>   
+      </tbody>
+   </table>
+</div>
+
    </div>
 
 <%- include('template/footer.ejs') %>

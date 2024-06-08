@@ -1,0 +1,88 @@
+<%- include('template/cabecera.ejs') %>
+<%- include('template/mainmenu.ejs') %>
+   <div class="container p-4">
+ 
+        
+
+            <div class="col-6 m-auto">
+                <div class="card" style="box-shadow: 23px 23px 12px -9px rgba(0,0,0,0.52);">
+                    <div class="card-header bg-warning">
+                        <h3 class="p-1 text-uppercase text-dark text-center">Crear Producto</h3>
+                    </div>
+                    <div class="card-body bg-secondary">
+                            <form action="/product" method="post">
+                               <div class="form-group">
+                                        <input 
+                                            type="text"
+                                            id="producto"
+                                            name="producto"
+                                            placeholder="Ingrese Producto"
+                                            class="form-control m-2"
+                                            required
+                                        >
+                               </div>
+                               <div class="form-group">
+                                    <input 
+                                        type="text"
+                                        id="descripcion"
+                                        name="descripcion"
+                                        placeholder="Ingrese Descripcion"
+                                        class="form-control m-2"
+                                        required
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <select
+                                        type="text"
+                                        id="categoria"
+                                        name="categoria"                                       
+                                        class="form-control m-2"
+                                        required
+                                    >
+                                    <option value="">Elija una categoria</option>
+                                    <option value="1">Bebidas</option>
+                                    <option value="2">Granos</option>
+                                    <option value="3">Detergentes</option>
+                                    <option value="4">Frutas</option>
+                                    <option value="5">Viveres</option>
+                                    </select>
+                                </div>
+                               
+                                <div class="form-group">
+                                    <input 
+                                        type="text"
+                                        id="presentacion"
+                                        name="presentacion"
+                                        placeholder="Ingrese Presentacion"
+                                        class="form-control m-2"
+                                    >
+                                </div>
+                               
+                                <div class="form-group">
+                                    <input 
+                                        type="text"
+                                        id="costo"
+                                        name="costo"
+                                        placeholder="Ingrese Costo"
+                                        class="form-control m-2"
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <input 
+                                        type="text"
+                                        id="precio"
+                                        name="precio"
+                                        placeholder="Ingrese Precio"
+                                        class="form-control m-2"
+                                    >
+                                </div>
+
+
+                                <button class="btn btn-warning btn-block">Crear Producto</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+   </div>
+
+<%- include('template/footer.ejs') %>
