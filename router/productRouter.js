@@ -3,11 +3,13 @@ const router = express.Router()
 const Swal = require('sweetalert2')
 const session = require('express-session')
 const Product = require('../models/productModel')
+const Category = require('../models/categoryModel')
 
 
 router.get('/',async(req,res)=>{  
     var message='';
     try {
+        
         const arrayProduct = await Product.find()
         console.log(req.session.users)
         if(req.session.message &&  req.session.message!=undefined){            
@@ -22,13 +24,20 @@ router.get('/',async(req,res)=>{
    
 })
 
-router.get('/create',(req,res)=>{   
-       res.render('createProduct',{isLogin:req.session.isLogin,users:req.session.users})
+router.get('/create',async(req,res)=>{   
+    const arrayCate = await Category.find()
+       res.render('createProduct',{cate:arrayCate,isLogin:req.session.isLogin,users:req.session.users})
 })
+
+
 router.get('/:id',async(req,res)=>{   
     const id = req.params.id
-    const prod = await Product.findOne({_id:id})   
-    res.render('editProduct',{prod:prod,isLogin:req.session.isLogin,users:req.session.users})
+    const prod = await Product.findOne({_id:id}) 
+    const {categoria} = prod 
+    const fc = await Category.find()
+    console.log(fc)
+    const cate = await Category.findOne({_id:categoria})
+    res.render('editProduct',{fc:fc,cate:cate,prod:prod,isLogin:req.session.isLogin,users:req.session.users})
 })
 
 router.put('/',(req,res)=>{

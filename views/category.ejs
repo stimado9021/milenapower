@@ -1,0 +1,42 @@
+<%- include('template/cabecera.ejs') %>
+<%- include('template/mainmenu.ejs') %>
+<% if(message && message!=undefined) {%>
+   <div id="mensaje" class="alert alert-dark"><h2 class="text-primary"><%= message %></h2></div>
+<%} %>
+   <div class="container p-5">
+     
+
+            <h1 class="text-uppercase text-warning bg-dark p-2">panel Categorias</h1>
+            <div class="m-3">
+               <a class="btn-success mb-4 p-2" href="/category/create">Crear Categoria</a>
+            </div>
+            <div class="table table-default" style="box-shadow: 43px 36px 5px 0px rgba(0,0,0,0.75);">        
+            <table class="table table-bordered table-striped">
+               <thead class=" bg-warning text-danger text-uppercase">
+                 <tr class="text-center">                   
+                   <th>codigo</th>
+                   <th>categoria</th>
+                   <th>creado</th>                   
+                   <th>Accion</th>
+                 </tr>
+               </thead>
+               <tbody>
+              
+         <% if(cate.length>0) { %>
+            <% cate.forEach(el => { %>
+               
+               <tr class="text-white bg-dark text-uppercase text-center " style="font-size: 12px;" >                 
+                  <td><%= el.id %></td>
+                  <td><%= el.name %></td>                 
+                  <td><%= el.createdAt.toLocaleString()  %></td>
+                  <td><a class="btn btn-warning text-danger" href="/category/<%= el.id %>">Editar Categoria</a></td>
+                </tr>
+               <%  }); %>
+           <% } %>   
+      </tbody>
+   </table>
+</div>
+
+   </div>
+
+<%- include('template/footer.ejs') %>
