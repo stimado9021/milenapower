@@ -14,8 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    // origin: "Localhost:3000",
-   origin:'https://milenapower.vercel.app/',
+    origin: "Localhost:3000",
+    //origin:'https://milenapower.vercel.app/',
     credentials: true,
   })
 );
@@ -55,6 +55,7 @@ app.use("/", require("./router/rutasweb"));
 app.use("/usuario", require("./router/usuarioRouter"));
 app.use("/product", require("./router/productRouter"));
 app.use("/category", require("./router/categoryRouter"));
+app.use("/provider", require("./router/providerRouter"));
 
 app.listen(port, () => {
   console.log("corriendo en el puerto " + port);
